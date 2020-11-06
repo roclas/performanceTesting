@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<iframe src="http://localhost/"></iframe>
+	<script>
+		const getRTime=()=>1000*(10*Math.random()+10);
+		const simulate=(ifr)=>{
+			let url="http://localhost/?rand="+Math.round(Math.random() * 10000000);
+			ifr.contentWindow.location.href=url;
+			setTimeout(()=> simulate(ifr) ,getRTime());
+		};
+		$(document).ready(()=>{
+			console.log("hello");
+			[...jQuery("iframe")].forEach(i=>simulate(i));
+		});
+	</script>
+	</body>
+</html>
+
